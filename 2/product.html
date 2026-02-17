@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Uttamhub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="css or js/product-page.css">
+</head>
+<body>
+
+    <header class="product-header">
+        <button onclick="history.back()" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="header-logo">Uttamhub</div>
+        <div class="header-icons">
+            <i class="fas fa-share-alt" onclick="shareCurrentProduct()"></i>
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+
+    <main class="product-container">
+        <nav class="breadcrumb" id="breadcrumb">
+            </nav>
+
+        <section class="main-info">
+            <div class="image-gallery">
+                <div class="main-img-holder">
+                    <img id="main-display-img" src="" alt="Product Image">
+                </div>
+                <div class="thumb-list" id="thumb-list">
+                    </div>
+            </div>
+
+            <div class="details-pane">
+                <div class="brand-line" id="product-brand"></div>
+                <h1 class="product-title" id="product-name">Loading...</h1>
+                
+                <div class="price-box">
+                    <span class="sale-price" id="product-sale"></span>
+                    <span class="mrp-price" id="product-mrp"></span>
+                    <span class="discount-percent" id="product-discount"></span>
+                </div>
+
+                <div class="delivery-note">
+                    <i class="fas fa-truck"></i> Free Delivery on this item
+                </div>
+
+                <div id="attributes-container" class="attr-group"></div>
+
+                <div class="action-buttons">
+                    <button class="buy-now-btn" onclick="handleWhatsAppOrder()">
+                        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h3>Product Description</h3>
+            <p id="product-description"></p>
+            <div id="other-details" class="technical-specs"></div>
+        </section>
+
+        <section class="similar-products-container">
+            <div class="section-header">
+                <h3>Similar Products</h3>
+                <p>Customers also bought</p>
+            </div>
+            <div id="similar-products-grid" class="resin-grid">
+                </div>
+        </section>
+    </main>
+
+    
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+     <script src="product.js"></script> </body>
+</html>

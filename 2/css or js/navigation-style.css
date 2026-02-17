@@ -1,0 +1,120 @@
+/* Styling the section wrapper inside navigation.html */
+section {
+    padding-top: 40px;    
+    padding-bottom: 40px; 
+    width: 100%;          
+    display: block;       
+}
+
+/* --- MOBILE VIEW --- */
+@media (max-width: 600px) {
+    section {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+}
+
+/* --- LAPTOP & DESKTOP VIEW --- */
+@media (min-width: 1024px) {
+    section {
+        padding-top: 80px;    
+        padding-bottom: 80px; 
+        max-width: 1400px;    
+        margin: 0 auto;       
+    }
+}
+
+/* Container Logic */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 30px; /* Increased gap for cleaner look on desktop */
+    }
+}
+
+/* --- ENHANCED CARD STYLE --- */
+.card {
+    background: #ffffff;
+    border: 1px solid rgba(225, 232, 237, 0.7); /* Softer border */
+    border-radius: 20px; /* Slightly rounder for a modern feel */
+    padding: 25px 15px;
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smoother animation */
+    min-height: 220px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02); /* Very subtle initial shadow */
+    overflow: hidden; /* For the decorative hover effect */
+}
+
+/* Invisible Link Over Entire Card */
+.card a.main-link {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10;
+    opacity: 0;
+}
+
+/* Decorative Line on Hover (The "Attractive" touch) */
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, #0984e3, #00d2ff);
+    transition: width 0.4s ease;
+}
+
+.card:hover::after {
+    width: 100%;
+}
+
+/* Large Icon with Gradient Glow */
+.card .main-icon {
+    font-size: 3.2rem;
+    color: #0984e3;
+    margin-bottom: 18px;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 0px rgba(9, 132, 227, 0));
+}
+
+/* Interactive Hover States */
+.card:hover {
+    transform: translateY(-10px); /* Lift higher */
+    border-color: rgba(9, 132, 227, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Modern soft shadow */
+}
+
+.card:hover .main-icon {
+    transform: scale(1.15) rotate(-8deg);
+    filter: drop-shadow(0 5px 15px rgba(9, 132, 227, 0.3)); /* Glow effect */
+}
+
+/* Text Content */
+.card-content h3 {
+    font-size: 1.05rem;
+    color: #2d3436;
+    margin-bottom: 8px;
+    font-weight: 800; /* Bolder titles */
+    letter-spacing: -0.02em;
+}
+
+.card-content p {
+    font-size: 0.8rem;
+    color: #636e72;
+    line-height: 1.5;
+    padding: 0 10px;
+}

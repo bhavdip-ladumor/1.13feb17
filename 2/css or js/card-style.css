@@ -1,0 +1,176 @@
+/* Container to center everything */
+.section-header {
+    text-align: center;
+    padding: 60px 5% 30px; /* Space above and below the title */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* The Main Title */
+.section-title {
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Responsive: Small on phone, Huge on TV */
+    color: #2d3436;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px; /* Modern tight look */
+    line-height: 1.1;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Subtle line under the title */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #0984e3; /* Matches your icon color */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* The Subtitle */
+.section-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.2rem); /* Scales with screen size */
+    color: #636e72;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Mobile Tweak for Header */
+@media (max-width: 600px) {
+    .section-header {
+        padding: 40px 15px 20px;
+    }
+    .section-title::after {
+        width: 40px;
+        height: 3px;
+    }
+}
+
+
+/* 1. GLOBAL FIX: Make Main Link disappear but stay clickable */
+.card a.main-link { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 10; 
+    font-size: 0; /* Hides the text */
+    text-indent: -9999px; /* Extra safety to hide text */
+    overflow: hidden;
+}
+
+/* 2. DYNAMIC GRID (Mobile to TV) */
+.grid {
+    display: grid;
+    /* Mobile: 2 columns fixed */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    width: 100%;
+    max-width: 1800px; /* Supports TV/Large Screens */
+    margin: 0 auto;
+}
+
+/* Tablet: 3 Columns */
+@media (min-width: 768px) {
+    .grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+/* Desktop: 4 Columns */
+@media (min-width: 1024px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* TV / Ultra-Wide: 5-6 Columns */
+@media (min-width: 1600px) {
+    .grid { grid-template-columns: repeat(5, 1fr); gap: 30px; }
+}
+
+/* 3. INTERACTIVE CARD DESIGN */
+.card { 
+    background: white; 
+    border: 1px solid #ddd; 
+    padding: 20px; 
+    border-radius: 16px; 
+    display: flex; 
+    flex-direction: column; /* Icon top, Text bottom */
+    align-items: center; 
+    justify-content: center;
+    gap: 15px; 
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    cursor: pointer; 
+    min-height: 220px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+
+
+/* Hover & Active States (Interactive) */
+.card:hover { 
+    transform: translateY(-10px) scale(1.02); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+    border-color: #0984e3; 
+}
+
+.card:active {
+    transform: scale(0.95); /* Tactile feedback for mobile */
+}
+
+/* 4. LARGE ICON & IMAGE LOGIC */
+.card i.main-icon, .main-icon-container { 
+    font-size: 3.5rem; /* Larger Icon */
+    color: #0984e3; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease;
+}
+
+.main-icon-img {
+    width: 80px; /* Larger Logo */
+    height: 80px;
+    object-fit: contain;
+    transition: 0.4s ease;
+}
+
+/* Animation on hover */
+.card:hover i.main-icon, .card:hover .main-icon-img {
+    transform: rotate(-5deg) scale(1.1);
+}
+
+/* 5. TEXT CONTENT */
+.card-content h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 8px; 
+    color: #2d3436; 
+    font-weight: 700;
+}
+
+.card-content p { 
+    font-size: 0.85rem; 
+    color: #636e72; 
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 6. MOBILE SPECIFIC TWEAKS */
+@media (max-width: 600px) {
+    .grid { gap: 10px; padding: 10px; }
+    .card { 
+        padding: 15px; 
+        min-height: 200px;
+    }
+    .card i.main-icon { font-size: 2.8rem; }
+    .main-icon-img { width: 60px; height: 60px; }
+    .card-content h3 { font-size: 0.9rem; }
+}

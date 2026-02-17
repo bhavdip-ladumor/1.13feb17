@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttam Hub | Manufacturing & Custom Gifts</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css or js/card-style.css">
+    <link rel="stylesheet" href="css or js/stylesheet.css">
+    <link rel="stylesheet" href="css or js/navigation-style.css">
+    <link rel="stylesheet" href="css or js/search-menu.css">
+    
+    <link rel="stylesheet" href="css or js/slider1.css">
+    <link rel="stylesheet" href="css or js/promo-slider.css">
+    
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+<div class="search-section-wrapper">
+    <div class="main-search-bar">
+        <button class="menu-open-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i> <span>MENU</span>
+        </button>
+
+        <div class="search-input-group">
+            <input type="text" id="main-search" placeholder="Search products, brands...">
+            <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</div>
+
+<div id="side-panel" class="side-nav-panel">
+    <div class="side-nav-header">
+        <div class="side-logo-wrap">
+            <a href="index.html" class="logo">UTTAM<span>HUB</span></a>
+        </div>
+        <button class="menu-close-btn" onclick="toggleMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="side-nav-content">
+        <p class="nav-label">Explore Divisions</p>
+        <div id="side-panel-links">
+            </div>
+    </div>
+    
+    <div class="side-nav-footer">
+        <p>© 2024 Uttam Hub</p>
+    </div>
+</div>
+
+<div id="menu-overlay" class="menu-dark-overlay" onclick="toggleMenu()"></div>
+    
+</div>
+
+<!-- --------------------------------------------- -->
+    <!-- slider1 -->
+<!-- ------------------------------------------------- -->
+
+  <section class="hero-main-slider">
+    <div class="hero-ms-container" id="hero-slider-wrapper">
+        <div class="hero-ms-slide active" onclick="handleHeroClick('resin')">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEilwt3FA0zufVbLv71e_AF-Geoz6DXrJb5PvJbwa2Rtx5ftve8Q1TjicQU9snmF3LazJi12iODyRTdz7NMzb7Y0egwbuvzftacx9M8tM9t2eICtGTJqOxK-gnoNz5b7F523uf8fHWL7axpmm5nLNMdiMVg168wNccz3oW0djLKM10CWX3bTCa2Rark0hdxo" alt="Resin Art">
+            <div class="hero-ms-caption">
+                <h2 class="hero-ms-title">Premium Resin Art</h2>
+            </div>
+        </div>
+
+        <div class="hero-ms-slide" onclick="handleHeroClick('MDF Designs')">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1400&auto=format&fit=crop" alt="Laser Cutting">
+            <div class="hero-ms-caption">
+                <h2 class="hero-ms-title">MDF Laser Cut Designs</h2>
+            </div>
+        </div>
+
+        <div class="hero-ms-slide" onclick="handleHeroClick('sale')">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1400&auto=format&fit=crop" alt="Business Sale">
+            <div class="hero-ms-caption">
+                <h2 class="hero-ms-title">Exclusive Business Partners</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-ms-dots">
+        <span class="hero-ms-dot active" onclick="currentHeroSlide(0)"></span>
+        <span class="hero-ms-dot" onclick="currentHeroSlide(1)"></span>
+        <span class="hero-ms-dot" onclick="currentHeroSlide(2)"></span>
+    </div>
+</section>
+
+<script src="css or js/slider1.js"></script>
+<!-- --------------------------------------------- -->
+    <!-- slider1 end -->
+<!-- ------------------------------------------------- -->
+
+
+   
+    <div id="hero-placeholder"></div>
+
+    <div id="hiring-placeholder"></div>
+
+
+
+<!-- --------------------------------------------- -->
+    <!-- promo slider -->
+<!-- ------------------------------------------------- -->
+
+    <section class="promo-section-wrap">
+    <div class="promo-viewport">
+        <div class="promo-track" id="promo-track">
+            </div>
+    </div>
+</section>
+
+
+<!-- --------------------------------------------- -->
+    <!-- promo slider end -->
+<!-- ------------------------------------------------- -->
+
+
+
+
+<!-- --------------------------------------------- -->
+    <!-- promo slider 2 start -->
+<!-- ------------------------------------------------- -->
+
+<!-- <section class="promo-section-wrap">
+    <div class="promo-viewport promo-viewport-2">
+        <div class="promo-track" id="promo-track-2">
+            </div>
+    </div>
+</section> -->
+
+<!-- --------------------------------------------- -->
+    <!-- promo slider 2 end -->
+<!-- ------------------------------------------------- -->
+
+
+    <div id="nav-placeholder"></div>
+
+    <div id="about-placeholder"></div>
+
+    <div id="footer-placeholder"></div>
+
+    <div id="whatsapp-placeholder"></div>
+
+    <script>
+        async function load(id, path) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            try {
+                const response = await fetch(path);
+                if (response.ok) {
+                    el.innerHTML = await response.text();
+                }
+            } catch (err) {
+                console.error("Error loading: " + path);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            load('header-placeholder', 'components/header.html');
+            load('hero-placeholder', 'components/hero-section.html');
+            load('hiring-placeholder', 'components/hiring-bar.html');
+            load('nav-placeholder', 'components/navigation.html');
+            load('about-placeholder', 'components/about-us.html');
+            load('footer-placeholder', 'components/contact-footer.html');
+            load('whatsapp-placeholder', 'components/float-whatsapp.html');
+        });
+    </script>
+
+    <script src="script.js"></script>
+    <script src="database.js"></script>
+    <script src="css or js/promo-slider.js"></script>
+    <script src="css or js/promo2.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resin Cosmos | Custom Gifts & Raw Materials</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #2d3436; --accent: #0984e3; --resin-purple: #6c5ce7; --whatsapp: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #333; }
+
+        header { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .brand-banner { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 5%; text-align: center;
+        }
+        .insta-link { color: #fd79a8; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+
+        /* Category Filter Styles */
+        .filter-container { text-align: center; padding: 30px 0; }
+        .filter-btn { 
+            padding: 10px 25px; margin: 5px; border: 2px solid var(--accent); 
+            background: transparent; cursor: pointer; border-radius: 25px; font-weight: bold; transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--accent); color: white; }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5% 50px; max-width: 1200px; margin: 0 auto; }
+        
+        /* Product Card */
+        .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-8px); }
+        .product-img { width: 100%; height: 230px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-img img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .category-tag { font-size: 0.7rem; text-transform: uppercase; color: var(--accent); font-weight: bold; letter-spacing: 1px; }
+        
+        .buy-btn { 
+            display: block; text-align: center; background: var(--whatsapp); color: white; 
+            text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 15px;
+            transition: 0.3s;
+        }
+        .buy-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="cart-sidebar" style="position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: white; box-shadow: -10px 0 30px rgba(0,0,0,0.1); z-index: 2001; transition: 0.4s; padding: 25px; display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px;">
+            <h3 style="margin:0; color: var(--primary);">Your Selections</h3>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor: pointer; font-size: 1.2rem; color: #999;"></i>
+        </div>
+        <div id="cart-items" style="flex-grow: 1; overflow-y: auto; margin-bottom: 20px;">
+            <p style="text-align:center; color:#999; margin-top:20px;">Your cart is empty</p>
+        </div>
+        <button onclick="checkoutWhatsApp()" style="width: 100%; background: #25D366; color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;">
+            <i class="fab fa-whatsapp"></i> Order via WhatsApp
+        </button>
+        <button onclick="clearCart()" style="width: 100%; background: transparent; color: #ff7675; border: 1px solid #ff7675; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; cursor: pointer;">
+            Clear All
+        </button>
+    </div>
+
+    <header>
+        <a href="../../index.html" class="logo">UTTAM<span>HUB</span></a>
+        <nav><a href="../../index.html" style="color: white; text-decoration: none;">← Back to Home</a></nav>
+      
+     <div id="global-search-bar"></div>
+     <script src="nav-loader.js"></script>
+
+
+
+    </header>
+
+    <div class="brand-banner">
+        <h1 style="font-size: 3rem;">Resin Cosmos</h1>
+        <p>Premium Customized Art & Professional Grade Raw Materials</p>
+        <a href="https://instagram.com/resin.cosmos_" target="_blank" class="insta-link">
+            <i class="fab fa-instagram"></i> @resin.cosmos_
+        </a>
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterCategory('all')">All Products</button>
+        <button class="filter-btn" onclick="filterCategory('custom')">Customized Products</button>
+        <button class="filter-btn" onclick="filterCategory('raw')">Raw Materials</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+        
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Divine Resin God Frame</h4>
+                <p>Elegant 3D resin frames with gold foil and high-gloss finish.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: God Frame" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Divine God Frame')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+        <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1596944210900-3467b3142284?auto=format&fit=crop&w=600&q=80" alt="Resin Jewelry">
+        </div>
+        <div class="product-info">
+            <span class="category-tag">Customizable</span>
+            <h4>Handcrafted Resin Jewelry</h4>
+            <p>Unique pendants, earrings, and rings featuring real pressed flowers, gold flakes, and alcohol ink art.</p>
+            
+            <div style="display: flex; gap: 8px; margin-top: 15px;">
+                <a href="https://wa.me/919724362981?text=Hi%20Resin%20Cosmos,%20I'm%20interested%20in%20your%20custom%20jewelry%20collection." class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">
+                    <i class="fab fa-whatsapp"></i> Customize
+                </a>
+                <button onclick="addToCart('Resin Cosmos', 'Resin Jewelry')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">
+                    <i class="fas fa-cart-plus"></i> + Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Initial Alphabet Keychain</h4>
+                <p>Personalized resin keychains with real flowers or glitter.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Keychain" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Alphabet Keychain')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Artistic Resin Coasters</h4>
+                <p>Hand-poured geode or ocean wave style coasters.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Coasters" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Resin Coasters')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+        <div class="product-img">
+            <img src="https://images.unsplash.com/photo-1582730147924-d92b4cb00231?auto=format&fit=crop&w=600&q=80" alt="Rose Preservation">
+        </div>
+        <div class="product-info">
+            <span class="category-tag">Specialty Service</span>
+            <h4>Rose & Bouquet Preservation</h4>
+            <p>Don't let your special roses wilt. We preserve bridal bouquets and anniversary roses in crystal-clear resin blocks.</p>
+            
+            <div style="display: flex; gap: 8px; margin-top: 15px;">
+                <a href="https://wa.me/919724362981?text=Hi%20Resin%20Cosmos,%20I%20want%20to%20preserve%20my%20special%20roses/bouquet" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">
+                    <i class="fab fa-whatsapp"></i> Book Service
+                </a>
+                <button onclick="addToCart('Resin Cosmos', 'Rose Preservation')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">
+                    <i class="fas fa-cart-plus"></i> + Cart
+                </button>
+            </div>
+        </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Wedding Flower Preservation</h4>
+                <p>Turn your wedding varmaala into a lifelong resin masterpiece.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Flower Preservation" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Inquire</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Flower Preservation')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Baby Memory Keepsake</h4>
+                <p>Preserve baby hair, tags, or first shoes in premium resin.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Baby Memory" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Baby Keepsake')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Luxury Resin Name Plates</h4>
+                <p>Premium 3D name plates for homes and corporate offices.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Name Plate" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Name Plate')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Designer Resin Clock</h4>
+                <p>Unique marble-effect wall clocks with silent movement.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Clock" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Resin Clock')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card raw">
+            <div class="product-img"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd1LcH3LG9mrPcWHF7hlDghtFixpbbVgulEsn4_sKpE1fWOYo3y93GQW1aM5JT3V8hBa91gjt7MHPrl5KpQo0BA1MMbFlg9vsS1n8APeO1HDCFyw4ENAqI4CvbzlFP2Y5ri0gv4juA2VBLAqLnQXpDx9dJM8xg667iQndCjtgApct0OZndNLC1XjGFVirA/s320/Resin%20cosmos.png" alt="Resin 2:1"></div>
+            <div class="product-info">
+                <span class="category-tag">Raw Material</span>
+                <h4>Ultra Clear Epoxy Resin 2:1</h4>
+                <p>High gloss, UV resistant art & jewelry grade resin.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: 2:1 Resin" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Order Now</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Epoxy Resin 2:1')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card custom">
+            <div class="product-img"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23ccc' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'%3E%3C/circle%3E%3Cpolyline points='21 15 16 10 5 21'%3E%3C/polyline%3E%3C/svg%3E" alt="No Image"></div>
+            <div class="product-info">
+                <span class="category-tag">Customizable</span>
+                <h4>Personalized Name Lamp</h4>
+                <p>LED wooden base with customized resin letters.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Order: Name Lamp" class="buy-btn" style="flex: 1.5; margin: 0; font-size: 0.8rem; padding: 10px 5px;">Customize</a>
+                    <button onclick="addToCart('Resin Cosmos', 'Name Lamp')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem; padding: 10px 5px;">+ Cart</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function filterCategory(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Basic sidebar toggle (Assuming functionality in cart.js)
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            sidebar.style.right = sidebar.style.right === '0px' ? '-400px' : '0px';
+        }
+    </script>
+    <script src="../../css or js/cart.js"></script>
+</body>
+
+</html>

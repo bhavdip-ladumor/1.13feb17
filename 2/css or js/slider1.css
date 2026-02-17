@@ -1,0 +1,253 @@
+/* --- HERO SLIDER: CLEAN & COMPACT --- */
+.hero-main-slider {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #fff; /* Removed black background */
+    /* Slim Cinematic Ratio */
+    aspect-ratio: 16 / 5.2; 
+    border-radius: 0; /* Full bleed like reference */
+}
+
+.hero-ms-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* --- SLIDE POSITIONING --- */
+.hero-ms-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.hero-ms-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+/* --- IMAGE HANDLING (ANTI-STRETCH) --- */
+.hero-ms-slide img {
+    width: 100%;
+    height: 100%;
+    /* Key: Fill the height without distortion */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* --- CLEAN CAPTION (NO BLACK GRADIENT) --- */
+.hero-ms-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%; /* Minimal padding */
+    z-index: 2;
+    background: transparent; /* Removed black gradient */
+}
+
+.hero-ms-title {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    /* Uses shadow instead of gradient for readability */
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.6); 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transform: translateY(10px);
+    transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.hero-ms-slide.active .hero-ms-title {
+    transform: translateY(0);
+}
+
+/* --- CENTERED PILL DOTS --- */
+.hero-ms-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.hero-ms-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.hero-ms-dot.active {
+    background: #0984e3; /* Brand Blue */
+    width: 26px; /* Pill Shape */
+    border-radius: 10px;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Mobile */
+@media (max-width: 600px) {
+    .hero-main-slider {
+        aspect-ratio: 16 / 8; /* Slightly taller on mobile for product visibility */
+    }
+    .hero-ms-title {
+        font-size: 1.2rem;
+    }
+    .hero-ms-caption {
+        padding: 15px;
+    }
+}
+
+/* TV & Ultra-Wide *//* --- HERO SLIDER: FULL-BLEED COMPACT --- */
+.hero-main-slider {
+    position: relative;
+    width: 100%;
+    margin: 0; /* No outer margin */
+    padding: 0; /* No outer padding */
+    overflow: hidden;
+    aspect-ratio: 16 / 5.2; /* Slim cinematic height */
+    background: #fff;
+}
+
+.hero-ms-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- SLIDE POSITIONING --- */
+.hero-ms-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.hero-ms-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+/* --- IMAGE HANDLING (NO PADDING / NO STRETCH) --- */
+.hero-ms-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Edge-to-edge cover */
+    object-position: center;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CAPTION (MINIMALIST) --- */
+.hero-ms-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* No side padding, only enough bottom space for dots */
+    padding: 0 0 45px 5%; 
+    z-index: 2;
+    background: transparent;
+}
+
+.hero-ms-title {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-transform: uppercase;
+}
+
+/* --- CENTERED DOTS --- */
+.hero-ms-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-ms-dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-ms-dot.active {
+    background: #0984e3;
+    width: 28px;
+    border-radius: 10px;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Mobile: Ensure it still looks compact but tall enough for text */
+@media (max-width: 600px) {
+    .hero-main-slider {
+        aspect-ratio: 16 / 8.5; 
+    }
+    .hero-ms-title {
+        font-size: 1.3rem;
+    }
+    .hero-ms-dots {
+        bottom: 10px;
+    }
+}
+
+/* TV View: Maintain slim height */
+@media (min-width: 1600px) {
+    .hero-main-slider {
+        max-height: 400px;
+    }
+    .hero-ms-title {
+        font-size: 3rem;
+    }
+}
+@media (min-width: 1600px) {
+    .hero-main-slider {
+        max-height: 380px; /* Prevents height from growing too much */
+    }
+    .hero-ms-title {
+        font-size: 2.8rem;
+    }
+}

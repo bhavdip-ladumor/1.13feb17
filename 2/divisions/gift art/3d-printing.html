@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Printing | Bhavdip's Workshop</title>
+   
+    <style>
+        :root { --primary: #2d3436; --accent: #00d2ff; --whatsapp: #25D366; --bg: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
+
+        /* Consistent Dark Header */
+        header { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        /* Brand Banner with Tech Image */
+        .brand-banner { 
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 80px 5%; text-align: center;
+            border-bottom: 4px solid var(--accent);
+        }
+
+            footer { padding: 30px; text-align: center; background: var(--primary); color: white; margin-top: 50px; }
+    </style>
+    <link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../../../shopcart.css">
+
+
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo">UTTAM<span>HUB</span></a>
+        <nav><a href="../../creative-hub.html" style="color: white; text-decoration: none;">← Creative Hub</a></nav>
+    </header>
+
+    <div class="brand-banner">
+        <h1 style="font-size: 3rem;">Bhavdip's Workshop</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px;">Precision 3D Printing & Rapid Prototyping</p>
+        <a href="https://instagram.com/bhavdips_workshop" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold; display: inline-block; margin-top: 15px;">
+            <i class="fab fa-instagram"></i> @bhavdips_workshop
+        </a>
+    </div>
+
+<!-- cart------ -->
+<div class="cart-icon-fixed" onclick="toggleCart()">
+    <span class="icon">🛒</span>
+    <span id="cart-count" class="badge">0</span>
+</div>
+
+<div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-sidebar" onclick="toggleCart()" >x</button>
+    </div>
+    
+    <div id="cart-items-container"></div>
+
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total:</span>
+            <span>₹<span id="cart-total-amount">0</span></span>
+        </div>
+        <button class="btn-whatsapp" onclick="checkoutWhatsApp()">Checkout</button>
+        <button class="btn-clear-all" onclick="clearCart()">Clear Cart</button>
+    </div>
+</div>
+<!-- cart------- -->
+
+
+
+
+<div id="cart-overlay" onclick="toggleCart()"></div>
+
+
+
+    <script src="../../../script.js"></script>
+   
+    <footer>
+        <p><strong>Bhavdip's Workshop</strong> | A Division of Uttam Hub</p>
+        <p>WhatsApp: 9724362981</p>
+    </footer>
+
+</body>
+
+</html>
+

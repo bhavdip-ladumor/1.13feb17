@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | UTTAM HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2d3436;
+            --accent: #0984e3;
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background-color: var(--white); }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1500'); /* Industrial/Art backdrop */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .about-hero h1 { font-size: 3.5rem; letter-spacing: 2px; }
+        .about-hero h1 span { color: var(--accent); }
+
+         /* pesonal information */
+         .founder-section { padding: 30px 0; background: #fff; }
+    .founder-card { 
+        display: flex; 
+        align-items: center; 
+        gap: 50px; 
+        background: var(--light-bg); 
+        padding: 20px; 
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .founder-image img { 
+        width: 250px; 
+        height: 250px; 
+        border-radius: 15px; 
+        object-fit: cover; 
+        border: 4px solid var(--accent);
+    }
+    .founder-info .subtitle { 
+        color: var(--accent); 
+        font-weight: bold; 
+        text-transform: uppercase; 
+        font-size: 0.8rem; 
+    }
+    .founder-info h2 { 
+    font-size: 2.5rem; 
+    margin: 10px 0; 
+    color: var(--primary); 
+    /* This forces the single line */
+    white-space: nowrap; 
+}
+
+/* --- MOBILE ADJUSTMENT --- */
+@media (max-width: 600px) {
+    .founder-info h2 {
+        /* We reduce the size slightly so it doesn't overflow the screen edges */
+        font-size: 1.8rem; 
+    }
+}
+    .founder-signature p { 
+        font-style: italic; 
+        color: var(--primary); 
+        font-weight: 600; 
+        margin-top: 20px;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+    }
+
+    @media (max-width: 768px) {
+        .founder-card { flex-direction: column; text-align: center; }
+    }
+
+        /* Story Section */
+        .container { max-width: 1100px; margin: 0 auto; padding: 10px 20px; }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .story-text h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 5px; }
+        .story-text p { margin-bottom: 15px; font-size: 1.1rem; color: #555; }
+        
+        .highlight-box {
+            background: var(--light-bg);
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+            font-style: italic;
+            margin: 25px 0;
+        }
+
+        /* The "Two Sides" Section */
+        .dual-nature { background: var(--primary); color: white; padding: 80px 0; }
+        .dual-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            max-width: 1200px; 
+            margin: 0 auto;
+            text-align: center;
+        }
+        .side { padding: 40px; }
+        .side i { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
+        .industrial-side { border-right: 1px solid rgba(255,255,255,0.1); }
+
+        /* Stats Section */
+        .stats { display: flex; justify-content: space-around; padding: 60px 0; background: var(--light-bg); text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--accent); }
+        .stat-item p { font-weight: bold; text-transform: uppercase; color: var(--primary); }
+
+        /* CTA */
+        .cta { text-align: center; padding: 80px 20px; }
+        .btn-main {
+            background: var(--accent);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: #0773c5; box-shadow: 0 10px 20px rgba(9, 132, 227, 0.3); }
+
+        @media (max-width: 768px) {
+            .story-grid, .dual-grid { grid-template-columns: 1fr; }
+            .industrial-side { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="about-hero">
+        <div>
+            <h1>ABOUT <span>UTTAM HUB</span></h1>
+            <p>Bridging the Gap Between frusteted customer and genuine seller</p>
+        </div>
+    </section>
+
+    <section class="founder-section">
+    <div class="container">
+        <div class="founder-card">
+            <div class="founder-image">
+              <!-- <img src="bhavdip-ladumor.jpg" alt="Bhavdip Ladumor"> -->
+            </div>
+                <div class="founder-info">
+                    <span class="subtitle">The Visionary Behind the UttamHub</span>
+                        <h2>Bhavdip Ladumor</h2>
+                        <p>At Uttam Hub, we’re replacing marketplace uncertainty with a standard of excellence. I’ve designed this platform to be the bridge where frustrated customers find their solution and genuine sellers find their audience—creating a community built on mutual respect and quality.</p>
+                        <div class="founder-signature">
+                    <p>“turning your 'I need' into 'It’s done' is our priority."”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="container">
+        <div class="story-grid">
+            <div class="story-text">
+                <h2><strong style="font-size: 1.8rem;">Our Journey:</strong> <br>Redefining the Marketplace</h2>
+                <p>Uttam Hub was born out of a simple realization: <strong>Quality shouldn't be hard to find.</strong> Whether you are a business owner looking for precise industrial components or an customers looking for the perfect items/product for their daily routine, party, business, handicraft, home, earning and much more, we noticed people were tired of hopping from shop to shop.</p>
+                
+                <div class="highlight-box">
+                    "We don't just provide products; we provide the foundation for your vision to come alive."
+                </div>
+
+                <p>We evolved into a <strong>One-Stop Solution</strong> because we believe in the power of "Both." We have the heavy machinery for industrial scale, and the best servicer and vendors for you.</p>
+            </div>
+            <!-- <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800" alt="Art meets Industry" style="width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            </div> -->
+        </div>
+    </div>
+
+    <section class="dual-nature">
+        <div class="dual-grid">
+            <div class="side industrial-side">
+                <i class="fas fa-microchip"></i>
+                <h3>Industrial Scale</h3>
+                <p>Wholesale supplies, Machine job work, raw materials. We provide the strength and precision required for large-scale manufacturing.</p>
+            </div>
+            <div class="side artistry-side">
+                <i class="fa-solid fa-store"></i>
+                <h3>Retail & custom</h3>
+                <p>Through customize, we create handcrafted things, and custom decor that tells a story.
+                    and also provide quality products
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+            <h3>200+</h3>
+            <p>Wholesale Clients</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Quality Guarantee</p>
+        </div>
+    </section>
+
+    
+
+</body>
+</html>

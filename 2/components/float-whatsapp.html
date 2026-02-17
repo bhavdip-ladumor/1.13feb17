@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float whatsapp</title>
+    <style>
+        .whatsapp-float {
+    position: fixed;
+    /* Moved significantly up to avoid covering cart icons */
+    bottom: 180px; 
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    /* Higher z-index to stay above cards but below critical popups */
+    z-index: 999; 
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(10deg);
+    background-color: #128c7e;
+}
+
+/* Updated Mobile Adjustment */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        /* Keeps it clear of the bottom navigation bar on mobile */
+        bottom: 160px !important; 
+        right: 15px !important;
+        font-size: 25px;
+    }
+}
+
+@keyframes whatsapp-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+    </style>
+
+
+
+
+</head>
+<body>
+      <a href="https://wa.me/9724362981?text=Hello%20Uttam%20Hub!%20I%20am%20interested%20in%20your%20Art%20and%20Gift%20services." 
+   class="whatsapp-float" 
+   target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+</body>
+</html>

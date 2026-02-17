@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift & Art Gallery | Uttamhub</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-gold: #c5a059;
+            --bg-dark: #0f0f0f;
+        }
+
+        html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Prevents the right-to-left scroll */
+    position: relative;
+}
+
+* {
+    box-sizing: border-box; /* Ensures padding doesn't increase element width */
+}
+
+        body { background-color: #fcfcfc; margin: 0; font-family: 'Segoe UI', sans-serif; }
+
+        /* Cinema Header */
+        .art-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1513519247388-193ad51c50be?q=80&w=1400');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .art-header h1 { font-size: 2.5rem; margin: 0; letter-spacing: 4px; text-transform: uppercase; }
+        .art-header p { color: var(--accent-gold); font-style: italic; margin-top: 10px; }
+
+        /* 1:1 Brand Grid */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-card:hover { transform: translateY(-8px); }
+
+        .img-box {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Fixed 1:1 Ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+            background: #eee;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .brand-card span {
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Component Containers */
+        .component-section { width: 100%; margin: 20px 0; }
+
+        @media (min-width: 1024px) {
+            .brand-grid { grid-template-columns: repeat(6, 1fr); } /* 6 in a row for TV/Desktop */
+        }
+
+        #whatsapp-placeholder {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999; /* Keeps it above everything */
+}
+    </style>
+</head>
+<body>
+
+    <header class="art-header">
+        <h1>Uttamhub</h1>
+        <p>Gift and Art Gallery</p>
+    </header>
+
+    <div id="hiring-bar-placeholder" class="component-section"></div>
+
+    <section class="brand-grid">
+        <a href="../index.html?filter=gifthub" class="brand-card">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400" alt="Gift Hub">
+            </div>
+            <span>Gift Hub</span>
+        </a>
+
+        <a href="../brands/resin/resin.html" class="brand-card">
+            <div class="img-box">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgd1LcH3LG9mrPcWHF7hlDghtFixpbbVgulEsn4_sKpE1fWOYo3y93GQW1aM5JT3V8hBa91gjt7MHPrl5KpQo0BA1MMbFlg9vsS1n8APeO1HDCFyw4ENAqI4CvbzlFP2Y5ri0gv4juA2VBLAqLnQXpDx9dJM8xg667iQndCjtgApct0OZndNLC1XjGFVirA/s320/Resin%20cosmos.png" alt="Resin Cosmos">
+            </div>
+            <span>Resin Cosmos</span>
+        </a>
+
+        <a href="../index.html?filter=acrylicfortune" class="brand-card">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=400" alt="Acrylic Fortune">
+            </div>
+            <span>Acrylic Fortune</span>
+        </a>
+
+        <a href="../index.html?filter=woodenbeyond" class="brand-card">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400" alt="Wooden Beyond">
+            </div>
+            <span>Wooden Beyond</span>
+        </a>
+
+        <a href="../index.html?filter=dimensional" class="brand-card">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400" alt="Dimensional Dreams">
+            </div>
+            <span>Dimensional Dreams</span>
+        </a>
+
+        <a href="../index.html?filter=vinylvibe" class="brand-card">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1572375927902-e60d00db310f?w=400" alt="Vinyl Vibe">
+            </div>
+            <span>Vinyl Vibe</span>
+        </a>
+    </section>
+
+    <div id="whatsapp-placeholder"></div>
+
+    <script>
+        // Function to load external HTML components
+        async function loadComponent(id, path) {
+            try {
+                const response = await fetch(path);
+                const html = await response.text();
+                document.getElementById(id).innerHTML = html;
+            } catch (err) {
+                console.warn(`Component at ${path} not found.`);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Path logic: go up one folder (../) then into components/
+            loadComponent('hiring-bar-placeholder', '../components/hiring-bar.html');
+            loadComponent('whatsapp-placeholder', '../components/float-whatsapp.html');
+        });
+    </script>
+
+</body>
+</html>

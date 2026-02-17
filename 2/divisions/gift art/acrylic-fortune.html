@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acrylic Fortune | Luxury Acrylic Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../../shopcart.css">
+    <style>
+        :root { --primary: #0a3d62; --accent: #3c6382; --whatsapp: #25D366; --bg: #f4f7f6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #2d3436; }
+
+        header { background: #1e272e; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: #00d2ff; }
+
+       .brand-banner { 
+        background: linear-gradient(rgba(10, 61, 98, 0.7), rgba(10, 61, 98, 0.7)), 
+                    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbZJTPfzcB-OIqtTbnuZjg3e_XuByMeHqSOQ&s');
+        background-size: cover; 
+        background-position: center;
+        color: white; 
+        padding: 80px 5%; 
+        text-align: center;
+        border-bottom: 4px solid #00d2ff;
+    }
+
+        .container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+        .product-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        .product-img { width: 100%; height: 200px; background: #dfe6e9; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #b2bec3; }
+        
+        .product-info { padding: 20px; flex-grow: 1; }
+        .product-info h4 { color: var(--primary); margin-bottom: 10px; font-size: 1.2rem; }
+        
+        .size-selector { margin: 15px 0; }
+        .size-select { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ced4da; }
+
+        .buy-btn { 
+            display: block; text-align: center; background: var(--whatsapp); color: white; 
+            text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; margin-top: 10px;
+        }
+        .service-btn { background: var(--primary); }
+
+        footer { padding: 30px; text-align: center; background: #1e272e; color: white; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo">UTTAM<span>HUB</span></a>
+        <nav><a href="../../creative-hub.html" style="color: white; text-decoration: none;">← Creative Hub</a></nav>
+        <div id="global-search-bar"></div>
+        <script src="nav-loader.js"></script>
+
+    </header>
+
+    <div class="brand-banner">
+    <h1 style="font-size: 3rem;">Acrylic Fortune</h1>
+    <p>Premium Mirror Acrylics, Customized Table-tops & Industrial Cutouts</p>
+    <a href="https://instagram.com/acrylic_fortune" target="_blank" style="color: #00d2ff; text-decoration: none; font-weight: bold; font-size: 1.1rem; display: inline-block; margin-top: 15px;">
+        <i class="fab fa-instagram"></i> @acrylic_fortune
+    </a>
+    </div>
+
+    <div class="container">
+    <div class="product-grid">
+        
+        <div class="product-card">
+            <div class="product-img"> [Mirror Gold Roman Letters] </div>
+            <div class="product-info">
+                <h4>Roman Letters & Numbers</h4>
+                <p>Acrylic mirror finish letters for clocks and wall decor.</p>
+                <div class="size-selector">
+                    <select class="size-select" id="romanSize">
+                        <option value="1 inch">1 Inch</option>
+                        <option value="2 inch">2 Inch</option>
+                        <option value="3 inch">3 Inch</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="javascript:void(0)" onclick="sendWhatsApp('Roman Letters', 'romanSize')" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addWithVariant('Acrylic Fortune', 'Roman Letters', 'romanSize')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img"> [Acrylic Clock Ring] </div>
+            <div class="product-info">
+                <h4>Acrylic Clock Rings</h4>
+                <p>Perfectly cut rings for resin clock artists. Multiple colors.</p>
+                <div class="size-selector">
+                    <select class="size-select" id="ringSize">
+                        <option value="10 inch">10 Inch</option>
+                        <option value="12 inch">12 Inch</option>
+                        <option value="14 inch">14 Inch</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="javascript:void(0)" onclick="sendWhatsApp('Clock Ring', 'ringSize')" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addWithVariant('Acrylic Fortune', 'Clock Ring', 'ringSize')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img"> [3D Mirror Wall Decor] </div>
+            <div class="product-info">
+                <h4>3D Mirror Decor</h4>
+                <p>Customized mirror acrylic shapes and wall art.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Acrylic%20Fortune,%20I%20want%20to%20see%203D%20Mirror%20designs" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> View
+                    </a>
+                    <button onclick="addToCart('Acrylic Fortune', '3D Mirror Decor')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img"> [Acrylic Table Top] </div>
+            <div class="product-info">
+                <h4>Table Tops & Paper Weights</h4>
+                <p>Crystal clear, heavy-duty acrylic blocks.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Acrylic%20Fortune,%20I%20need%20a%20quote%20for%20Acrylic%20Table%20Top" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Quote
+                    </a>
+                    <button onclick="addToCart('Acrylic Fortune', 'Table Top/Paper Weight')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" style="border: 2px solid var(--primary);">
+            <div class="product-img"> [UV Printing on Acrylic] </div>
+            <div class="product-info">
+                <h4>Industrial Cutouts & UV Printing</h4>
+                <p>Bulk sheet cutting and direct UV printing.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Acrylic%20Fortune,%20Bulk%20Inquiry" class="buy-btn service-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem; background: var(--primary);">
+                        <i class="fas fa-print"></i> Inquiry
+                    </a>
+                    <button onclick="addToCart('Acrylic Fortune', 'Bulk UV Printing/Cutting')" class="buy-btn" style="flex: 1; margin: 0; background: var(--accent); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <footer>
+        <p><strong>Acrylic Fortune</strong> | A Division of Uttam Hub</p>
+        <p>Contact: 9724362981</p>
+    </footer>
+
+    <script>
+        function sendWhatsApp(productName, selectId) {
+            const size = document.getElementById(selectId).value;
+            const message = `Hi Acrylic Fortune, I want to inquire about ${productName} in size: ${size}.`;
+            window.open(`https://wa.me/919724362981?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+
+    
+    <div id="cart-placeholder"></div>
+
+    <div id="cart-overlay" onclick="toggleCart()"></div>
+
+    <script src="../../../script.js"></script>
+    
+    
+</body>
+
+</html>
+

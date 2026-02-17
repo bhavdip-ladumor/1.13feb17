@@ -1,0 +1,172 @@
+/* =========================================
+   1. GRID LAYOUT (Highly Responsive)
+   ========================================= */
+.resin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Columns for Mobile */
+    gap: 12px;
+    padding: 12px;
+}
+
+/* Tablet (3 Columns) */
+@media (min-width: 768px) {
+    .resin-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+/* Desktop (4-5 Columns) */
+@media (min-width: 1024px) {
+    .resin-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* TV / Large Screen (6 Columns) */
+@media (min-width: 1440px) {
+    .resin-grid { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* =========================================
+   2. PRODUCT CARD (Combined Styles)
+   ========================================= */
+.product-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    border: 1px solid #f0f0f0; /* Kept your border */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Image Section */
+.card-img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Floating Elements */
+.share-btn-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.delivery-badge {
+    position: absolute;
+    top: 140px;
+    /* Adjusted to Right to match typical "Free" badge in your photo */
+    right: 10px; 
+    background: #fff; /* White background from photo */
+    color: #0089ba; /* Blue text from photo */
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Info Section */
+.card-info {
+    padding: 12px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.tiny-meta {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.card-title {
+    font-size: 15px; /* Slightly larger for readability */
+    margin: 0 0 5px 0;
+    color: #333;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 36px;
+}
+
+.brand-tag {
+    font-size: 11px;
+    color: #777; /* Neutral grey to match image */
+    margin-bottom: 8px;
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.sale-price {
+    font-size: 20px; /* Matching the large font in photo */
+    font-weight: 800;
+    color: #d32f2f; /* Reddish tone for price prominence */
+}
+
+.mrp-price {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* Variants Badge (Matching the Image) */
+.variant-tag {
+    font-size: 10px;
+    background: #e1f5fe; /* Light blue from your photo */
+    color: #0288d1; /* Dark blue text from your photo */
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* Buy Button (Optional - if you want to keep the WhatsApp button) */
+.card-buy-btn {
+    background: #00d4ff;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}

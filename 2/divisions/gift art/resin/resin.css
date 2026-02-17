@@ -1,0 +1,226 @@
+:root {
+    --bg-dark: #0a0a0b;
+    --card-bg: #161618;
+    --accent-blue: #00d2ff;
+    --accent-purple: #9d50bb;
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --nav-height: 70px; /* Fixed height for easier spacing */
+}
+
+/* Base Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: var(--bg-dark); 
+    color: var(--text-main); 
+    overflow-x: hidden; /* Prevents unwanted horizontal scrolling */
+}
+
+/* NAVBAR FIXES */
+.cosmos-nav {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 0 5%; 
+    height: var(--nav-height); /* Fixed height */
+    position: fixed; 
+    top: 0;
+    width: 100%; 
+    z-index: 1000;
+    background: rgba(10, 10, 11, 0.85); 
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-logo { 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 900; 
+    letter-spacing: 1px; 
+    font-size: 1.2rem;
+}
+
+.nav-logo span { color: var(--accent-blue); }
+
+.back-btn { 
+    text-decoration: none; 
+    color: var(--text-main); 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent-blue);
+}
+
+/* HERO SECTION FIXES */
+.cosmos-hero {
+    /* Adjusted padding to account for fixed navbar */
+    padding: calc(var(--nav-height) + 60px) 20px 60px;
+    background: radial-gradient(circle at top right, #1e1e2e, var(--bg-dark));
+    text-align: center;
+}
+
+.tagline { 
+    color: var(--accent-blue); 
+    font-size: 0.65rem; 
+    font-weight: 700; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    display: block;
+    margin-bottom: 10px;
+}
+
+.cosmos-hero h1 { 
+    font-family: 'Montserrat', sans-serif; 
+    font-size: clamp(2rem, 8vw, 3.5rem); /* Dynamic sizing for mobile */
+    margin: 15px 0; 
+    line-height: 1.1; 
+    font-weight: 900;
+}
+
+.cosmos-hero h1 span { 
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple)); 
+     
+    -webkit-text-fill-color: transparent; 
+    
+    /* ADD THESE TWO LINES */
+    text-decoration: none !important; 
+    display: inline-block; 
+}
+
+.cosmos-hero p { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    color: var(--text-dim); 
+    font-size: 0.95rem; 
+    line-height: 1.6; 
+}
+
+/* STATS SECTION FIXES */
+.hero-stats { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    margin-top: 40px; 
+    flex-wrap: wrap; /* Allows wrapping on very small screens */
+}
+
+.stat { 
+    border: 1px solid #333; 
+    padding: 12px 18px; 
+    border-radius: 12px; 
+    font-size: 0.65rem; 
+    background: rgba(255, 255, 255, 0.02);
+    min-width: 100px;
+}
+
+.stat strong { 
+    display: block; 
+    color: var(--accent-blue); 
+    font-size: 1.1rem; 
+    margin-bottom: 2px;
+}
+
+/* PRODUCT GRID & CARDS */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
+    padding: 20px 5% 80px; /* Extra bottom padding */
+}
+
+.product-card {
+    background: var(--card-bg); 
+    border-radius: 16px; 
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s; 
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover { 
+    transform: translateY(-8px); 
+    border-color: var(--accent-blue); 
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.15);
+}
+
+.img-box {
+    aspect-ratio: 1/1; 
+    background: #1f1f23;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative;
+    overflow: hidden;
+}
+
+.img-box i { 
+    font-size: 3rem; 
+    color: #333; 
+    transition: 0.4s; 
+}
+
+.product-card:hover .img-box i {
+    color: var(--accent-blue);
+    transform: scale(1.15) rotate(5deg);
+}
+
+.card-info { padding: 18px; flex-grow: 1; }
+.card-info h3 { 
+    font-size: 0.95rem; 
+    margin-bottom: 6px; 
+    font-weight: 700; 
+    color: var(--text-main);
+}
+
+.card-info p { 
+    font-size: 0.75rem; 
+    color: var(--text-dim); 
+    line-height: 1.5; 
+}
+
+/* Category Pills Styling (Optional add-on for your logic) */
+.category-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding: 10px 5%;
+}
+
+.cat-pill {
+    background: transparent;
+    border: 1px solid #333;
+    color: var(--text-dim);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.cat-pill.active, .cat-pill:hover {
+    background: var(--accent-blue);
+    color: var(--bg-dark);
+    border-color: var(--accent-blue);
+    font-weight: 600;
+}
+
+/* RESPONSIVE DESKTOP */
+@media (min-width: 768px) {
+    .product-grid { 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 25px; 
+    }
+    .cosmos-hero { padding: 180px 20px 100px; }
+    .hero-stats { gap: 30px; }
+}
