@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift, Art & Stationery</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="division css or js/common-divisions-service-card.css">
+    <link rel="stylesheet" href="division css or js/header-footer.css">
+    <link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../shopcart.css">
+
+</head>
+<body>
+
+<header class="simple-header" id="header-interactive">
+    
+    
+    <a href="../index.html" class="back-link">
+        <i class="fa-solid fa-chevron-left"></i> Hub
+    </a>
+
+    <div class="brand-center">
+        <h1 class="main-title">UTTAM<span>HUB</span></h1>
+        <p class="sub-title">GIFT AND ART GALLERY</p>
+    </div>
+</header>
+
+    <div id="hiring-placeholder"></div> 
+    
+    <div id="gift-art-service-placeholder"></div>
+  
+    <div id="whatsapp-placeholder"></div>
+
+    
+   <div id="cart-placeholder"></div>
+
+   <div id="cart-overlay" onclick="toggleCart()"></div>
+
+   <script src="../script.js"></script>
+
+<footer class="simple-footer">
+        <div class="footer-wrap">
+            <div class="footer-section">
+                <h4>CONTACT US</h4>
+                <div class="contact-links">
+                    <a href="tel:9724362981"><i class="fa-solid fa-phone"></i> +91 97243 62981</a>
+                    <a href="https://instagram.com/bhavdips_workshops" target="_blank"><i class="fa-brands fa-instagram"></i> @bhavdips_workshops</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>LOCATION</h4>
+                <p>Uttamhub Art Gallery, Gujarat, India</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 UTTAMHUB. Handcrafted with Love.</p>
+            </div>
+        </div>
+</footer>
+
+
+   
+   
+    
+    <script>
+        function loadSection(file, elementId) {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => { document.getElementById(elementId).innerHTML = data; })
+                .catch(err => console.log("Missing file: " + file));
+        }
+
+        // LOAD EVERYTHING IN ORDER
+
+        // 1. Hiringbar
+        loadSection('../index-components/hiring-bar.html', 'hiring-placeholder');
+        // service cards
+        loadSection('service-container/gift-art-service-container.html', 'gift-art-service-placeholder');        
+        // 2. whatsapp
+        loadSection('../index-components/float-whatsapp.html', 'whatsapp-placeholder');
+        // Add this line to your existing script in the.js
+        
+    
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

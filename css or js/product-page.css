@@ -1,0 +1,376 @@
+/* --- PRODUCT PAGE CORE STYLES --- */
+
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #27ae60;
+    --whatsapp-green: #25D366;
+    --text-dark: #333;
+    --text-light: #777;
+    --bg-light: #f4f7f6;
+    --white: #ffffff;
+    --error-red: #e74c3c;
+    --shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* --- HEADER & NAVIGATION --- */
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.header-logo {
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    color: var(--primary-color);
+}
+
+/* --- MAIN LAYOUT --- */
+.product-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.breadcrumb {
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.breadcrumb span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* --- MAIN INFO SECTION --- */
+.main-info {
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    gap: 25px;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* Image Gallery */
+.image-gallery {
+    flex: 1.2;
+}
+
+.main-img-holder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.main-img-holder img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.thumb-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.thumb-list img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.thumb-list img.active {
+    border-color: var(--primary-color);
+}
+
+/* Product Details */
+.product-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#product-brand {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#product-name {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+#product-sale {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000;
+}
+
+#product-mrp {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+#product-discount {
+    background: var(--error-red);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* --- ATTRIBUTES / PILLS --- */
+.attr-group {
+    margin: 20px 0;
+}
+
+.attr-group h4 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.pill-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.attr-pill {
+    padding: 8px 18px;
+    border: 1.5px solid #ddd;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    background: #fff;
+}
+
+.attr-pill.active-pill {
+    background: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+/* --- BUTTONS --- */
+.action-buttons {
+    margin-top: 20px;
+}
+
+.buy-now-btn {
+    width: 100%;
+    padding: 16px;
+    background: var(--whatsapp-green);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.buy-now-btn:hover {
+    background: #1eb954;
+    transform: translateY(-2px);
+}
+
+/* --- DESCRIPTION SECTION --- */
+.description-section {
+    margin-top: 25px;
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.description-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 8px;
+}
+
+#product-description {
+    font-size: 1rem;
+    color: #555;
+    white-space: pre-line; /* Preserves line breaks from database */
+}
+
+/* --- SIMILAR PRODUCTS GRID --- */
+.similar-products-container {
+    margin-top: 40px;
+}
+
+.section-header h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+.section-header p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.resin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    cursor: pointer;
+}
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sale-price {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* TABLETS (iPad, etc) */
+@media (min-width: 768px) {
+    .main-info {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 40px;
+    }
+
+    .image-gallery {
+        position: sticky;
+        top: 100px; /* Gallery stays in view while reading details */
+    }
+
+    #product-name {
+        font-size: 2.2rem;
+    }
+
+    .resin-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* DESKTOP & TV */
+@media (min-width: 1200px) {
+    .product-container {
+        padding: 40px 0;
+    }
+    
+    .main-info {
+        gap: 60px;
+    }
+}
+
+/* MOBILE FIX FOR "ORDER ON WHATSAPP" */
+@media (max-width: 600px) {
+    .action-buttons {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 12px 20px;
+        box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+        z-index: 1001;
+    }
+
+    body {
+        padding-bottom: 80px; /* Space for the fixed button */
+    }
+
+    .buy-now-btn {
+        border-radius: 30px;
+    }
+}

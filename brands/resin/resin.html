@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resin Cosmos | Premium Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css or js/card-style.css">
+    <link rel="stylesheet" href="../../css or js/stylesheet.css">
+    <link rel="stylesheet" href="resin.css">
+    <link rel="stylesheet" href="sticky-bar.css">
+    <link rel="stylesheet" href="resin-body.css">
+</head>
+<body>
+
+    <header class="resin-header">
+        <button class="menu-btn" onclick="toggleResinMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="brand-name">Resin Cosmos</div>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+    </header>
+
+    <main>
+        <div class="category-wrapper">
+            <div id="resin-categories" class="category-list"></div>
+        </div>
+        <div id="resin-grid" class="resin-grid"></div>
+    </main>
+
+    <nav class="sticky-bottom-bar">
+        <a href="resin.html" class="nav-item">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <button class="nav-item" onclick="openSearch()">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+        </button>
+        <button class="nav-item" onclick="openCategories()">
+            <i class="fas fa-th-large"></i>
+            <span>Category</span>
+        </button>
+        <button class="nav-item" onclick="contactUs()">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </button>
+    </nav>
+
+    <script src="../../database.js"></script>
+    <script src="../../script.js"></script>
+    <script src="resin.js"></script>
+</body>
+</html>

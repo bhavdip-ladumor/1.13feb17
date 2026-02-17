@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Need a Job? We Are Hiring!</title>
+    <style>
+    .hiring-strip { 
+        background: #dfe6e9; 
+        padding: 6px 5%; 
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+        margin-top: 5px;
+    }
+    .hiring-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        white-space: nowrap;
+        max-width: auto;
+        margin: 0 auto;
+    }
+    .hiring-content h3 { font-size: 0.85rem; margin: 0; color: #2d3436; }
+    .hiring-content p { font-size: 0.8rem; margin: 0; color: #636e72; }
+    .btn-hiring {
+        padding: 2px 10px;
+        font-size: 0.7rem;
+        background: #0984e3;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    @media (max-width: 450px) {
+        .hiring-content p { display: none; } /* Hides description on tiny screens to keep it 1 line */
+    }
+</style>
+</head>
+<body>
+    <section class="hiring-strip">
+    <div class="hiring-content">
+        <h3>Need a Job? We Are Hiring! 🚀</h3>
+        <p>Join the Uttam Hub Team.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeQixLw1f4RuIjgusmcOWYZ4H0GjCxbtV6_PpMHyD0b1TOPxA/viewform?usp=header" target="_blank" class="btn-hiring">Apply</a>
+    </div>
+</section>
+</body>
+</html>

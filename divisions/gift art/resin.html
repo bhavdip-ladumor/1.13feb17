@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resin Cosmos | Custom Gifts & Raw Materials</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../shopcart.css">
+    <style>
+        :root { --primary: #2d3436; --accent: #0984e3; --resin-purple: #6c5ce7; --whatsapp: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #333; }
+
+        header { background: var(--primary); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .brand-banner { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            color: white; padding: 60px 5%; text-align: center;
+        }
+        .insta-link { color: #fd79a8; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
+           
+
+
+
+        .loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    width: 100%;
+    color: #64748b; /* Subtle gray */
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(59, 130, 246, 0.1);
+    border-top: 3px solid #3b82f6; /* Matching your blue accent */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+       </style>
+</head>
+<body>
+
+    
+
+  <header>
+        <a href="../../index.html" class="logo">UTTAM<span>HUB</span></a>
+        <nav><a href="../../index.html" style="color: white; text-decoration: none;">← Back to Home</a></nav>
+      
+     <div id="global-search-bar"></div>
+     <script src="nav-loader.js"></script>
+  </header>
+
+    <div class="brand-banner">
+        <h1 style="font-size: 3rem;">Resin Cosmos</h1>
+        <p>Premium Customized Art & Professional Grade Raw Materials</p>
+        <a href="https://instagram.com/resin.cosmos_" target="_blank" class="insta-link">
+            <i class="fab fa-instagram"></i> @resin.cosmos_
+        </a>
+    </div>
+
+    <nav class="category-nav">
+    <button class="cat-btn active" onclick="filterView('all', this)">All</button>
+    <button class="cat-btn" onclick="filterView('resin', this)">Resin Art</button>
+    <button class="cat-btn" onclick="filterView('mdf', this)">Wooden</button>
+    <button class="cat-btn" onclick="filterView('acrylic', this)">Kits</button>
+</nav>
+
+
+
+<!-- product grid -->
+<section class="shop-section" style="position: relative; min-height: 300px;">
+      <div id="shop-loader" class="loader-container">
+        <div class="spinner"></div>
+        <p>Loading Products...</p>
+    </div>
+    <div id="product-grid" class="product-grid">
+        </div>
+</section>
+
+
+
+<!-- bundle pop up -->
+<div id="kit-modal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+        <h2 class="modal-title">Bundle Includes:</h2>
+        
+        <div id="kit-items-list" class="kit-items-wrap-grid">
+            </div>
+
+        <div id="modal-footer-logic">
+            </div>
+
+        <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+<!-- bundle pop up -->
+
+<!--  varient buttom -->
+
+<div id="variant-sheet-overlay" class="sheet-overlay" onclick="closeVariantSheet()"></div>
+<div id="variant-bottom-sheet" class="bottom-sheet">
+    <div class="sheet-header">
+        <h3 id="sheet-product-name">Options</h3>
+        <button class="close-sheet" onclick="closeVariantSheet()">×</button>
+    </div>
+    <div id="sheet-content" class="sheet-body"></div>
+    <div class="sheet-footer">
+        <div class="sheet-price-display">Price: <span id="sheet-price">₹0</span></div>
+        <button id="sheet-add-btn" class="btn-whatsapp">Add to Cart</button>
+    </div>
+</div>
+<!-- varient button html end -->
+
+
+
+<div id="cart-overlay" onclick="toggleCart()"></div>
+
+
+     <div id="cart-placeholder"></div>
+
+    <div id="cart-overlay" onclick="toggleCart()"></div>
+
+    <script src="../../script.js"></script>
+
+    <script>// Call this function AFTER your products are added to the #product-grid
+function showProducts() {
+    const loader = document.getElementById('shop-loader');
+    const grid = document.getElementById('product-grid');
+    
+    if (loader && grid) {
+        loader.style.display = 'none'; // Remove the loader
+        grid.style.opacity = '1';      // Fade in the products
+    }
+}
+
+// If you are using window.onload, it looks like this:
+window.addEventListener('load', showProducts);</script>
+
+    
+</body>
+
+</html>
+
+
+

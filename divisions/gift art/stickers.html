@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavdip's Workshop | Custom Stickers & Labels</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #6c5ce7; --accent: #00cec9; --dark: #2d3436; --whatsapp: #25D366; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: var(--dark); }
+
+        header { background: var(--dark); color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .brand-banner { 
+            background: linear-gradient(rgba(108, 92, 231, 0.7), rgba(45, 52, 54, 0.8)), 
+                        url('/pics/stickers/brand\ banner.png');
+            background-size: cover; background-position: center;
+            color: white; padding: 80px 5%; text-align: center;
+        }
+
+        .container { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
+        .product-img { width: 100%; height: 200px; background: #dfe6e9; display: flex; align-items: center; justify-content: center; color: #b2bec3; font-weight: bold; }
+        
+        .product-info { padding: 25px; flex-grow: 1; }
+        .product-info h4 { color: var(--primary); font-size: 1.3rem; margin-bottom: 10px; }
+        
+        .type-selector { margin: 15px 0; }
+        .type-select { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd; outline: none; }
+
+        .buy-btn { 
+            display: block; text-align: center; background: var(--whatsapp); color: white; 
+            text-decoration: none; padding: 12px; border-radius: 8px; font-weight: bold; transition: 0.3s;
+        }
+        .buy-btn:hover { background: #1eb954; transform: scale(1.02); }
+
+        footer { padding: 30px; text-align: center; background: var(--dark); color: white; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../index.html" class="logo">UTTAM<span>HUB</span></a>
+        <!-- <nav><a href="../../index.html" style="color: white; text-decoration: none;">← Creative Hub</a></nav> -->
+        <div id="global-search-bar"></div>
+     <script src="nav-loader.js"></script>
+    </header>
+
+    <div class="brand-banner">
+        <h1 style="font-size: 3rem;">Bhavdip's Workshop</h1>
+        <p style="font-size: 1.2rem; margin: 10px 0;">Premium Custom Stickers, Vinyl Decals & Advertising Solutions</p>
+        <a href="https://instagram.com/bhavdips_workshop" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: bold;">
+            <i class="fab fa-instagram"></i> @bhavdips_workshop
+        </a>
+    </div>
+
+    <div class="container">
+    <div class="product-grid">
+        
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Vinyl Stickers</h4>
+                <p>High-quality waterproof stickers. Best for logos and laptop skins.</p>
+                <div class="size-selector">
+                    <select class="size-select" id="vinylFinish">
+                        <option value="Matte Finish">Matte Finish</option>
+                        <option value="Glossy Finish">Glossy Finish</option>
+                    </select>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20want%20to%20order%20Vinyl%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addWithVariant('Bhavdip Workshop', 'Vinyl Stickers', 'vinylFinish')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Metallic Stickers</h4>
+                <p>Premium Gold and Silver mirror-finish for luxury branding.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20am%20interested%20in%20Metallic%20Gold/Silver%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Metallic Stickers')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Transparent Stickers</h4>
+                <p>Clear background stickers that blend perfectly onto glass.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20want%20to%20order%20Transparent%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Transparent Stickers')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Intersheet Stickers</h4>
+                <p>Specialized stickers for raw material use and resin pouring.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20need%20Intersheet%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Order
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Intersheet Stickers')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Custom Name Stickers</h4>
+                <p>Personalized decals for school kits, bottles, and personal items.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20want%20to%20order%20Custom%20Name%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Custom
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Custom Name Stickers')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Vehicle Radium & Cutouts</h4>
+                <p>Precision cut radium stickers. Weather resistant.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20need%20Radium%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Quote
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Vehicle Radium Sticker')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="product-img"></div>
+            <div class="product-info">
+                <h4>Advertising Stickers</h4>
+                <p>Large vinyl prints for shop displays and marketing.</p>
+                <div style="display: flex; gap: 8px; margin-top: 15px;">
+                    <a href="https://wa.me/919724362981?text=Hi%20Bhavdip,%20I%20need%20Large%20Advertising%20Stickers" class="buy-btn" style="flex: 1.2; margin: 0; font-size: 0.8rem;">
+                        <i class="fab fa-whatsapp"></i> Inquiry
+                    </a>
+                    <button onclick="addToCart('Bhavdip Workshop', 'Advertising Vinyl')" class="buy-btn" style="flex: 1; margin: 0; background: var(--primary); border: none; cursor: pointer; font-size: 0.8rem;">
+                        <i class="fas fa-cart-plus"></i> + Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <footer>
+        <p><strong>Bhavdip's Workshop</strong> | A Division of Uttam Hub</p>
+        <p>WhatsApp: 9724362981</p>
+    </footer>
+
+    <script>
+        function sendWhatsApp(product, selectId) {
+            const finish = document.getElementById(selectId).value;
+            const msg = `Hi Bhavdip, I am interested in ${product} with ${finish} finish. Please guide me on pricing.`;
+            window.open(`https://wa.me/919724362981?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+    </script>
+    <script src="../../css or js/cart.js"></script>
+</body>
+
+</html>
